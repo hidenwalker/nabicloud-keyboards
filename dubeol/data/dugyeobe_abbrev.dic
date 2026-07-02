@@ -1,0 +1,99 @@
+# 두겹이 (두벌식 겹받침) 약어 (본가 UserCompoTable 전사) — ★단일 사전(기호 레이어 + 글쇠쌍→단어)
+# 형식(키 길이로 구분, 같은 AbbrevDict 1벌):
+#   1글쇠:기호    = 기호 레이어(트리거 멤버십 + 첫 글쇠 preedit 표시).  예 d:♡  ~:: (세미콜론)
+#   2글쇠:단어    = 순서무관 글쇠쌍 → 단어(끝공백 보존).               예 df:으로 
+# 글쇠 = 물리 base(소문자 a-z + 세미콜론='~'), Shift와 함께 입력. 코드포인트 오름차순 정렬.
+#   ★기호가 아니라 base 글쇠로 키잉 = ':' 기호·구분자 충돌 회피 + 셸이 VK에서 직접 계산.
+# 약어 = 두 글쇠(Shift+빈글쇠) 연속 입력 → 단어 commit(순서무관). 글쇠쌍은 빈도순.
+# 트리거 글쇠는 된소리(ㄸㄲㅃㅉ)·이중모음(ㅒㅖ)·단키겹받침 글쇠와 서로소(충돌 없음, 생성기 assert).
+# 기호 레이어 요약: a=↔ b=▽ c=→ d=♡ f=□ g=◎ h=※ m=… n=· s=↑ u=○ v=△ x=↓ y=× z=←
+# 출처: ssgi.kr / Sinseiki (github.com/Sinseiki) · CC BY-SA 4.0 · 정본=본가 '부가기능 포함' XML.
+#   라이선스·면책 = addons/dubeol/NOTICE-dubeol.md · 설계 = docs/DUBEOL_ABBREV_DESIGN.md.
+# 자동 생성: addons/dubeol/tools/gen_dubeol_abbrev.py — 직접 편집 금지(본가 XML 수정 후 재생성).
+# ── 기호 레이어(1글쇠:기호) ──
+a:↔
+b:▽
+c:→
+d:♡
+f:□
+g:◎
+h:※
+m:…
+n:·
+s:↑
+u:○
+v:△
+x:↓
+y:×
+z:←
+# ── 약어(2글쇠쌍:단어, 빈도순) ──
+df:으로 
+dv:입니다. 
+dm:에서 
+gs:합니다. 
+hv:보다 
+fn:사람
+ms:습니다. 
+au:면서 
+cz:까지 
+dz:생각
+as:지만 
+sx:는데
+an:때문
+mx:니다. 
+nx:부터 
+fs:그러나 
+ds:이나 
+fg:그렇
+sz:니까
+mz:그것
+ac:문제
+fh:그리고 
+cm:처럼 
+af:만들
+fz:그런 
+ad:으면 
+fx:들어
+ag:문화
+am:으며 
+az:지금
+uz:경우
+dn:어떤 
+cs:자신
+cn:사실
+ns:시간
+gm:한국
+nz:시작
+cx:다시 
+dg:어떻
+fu:로서 
+fm:다른 
+du:이런 
+gy:학교
+cu:정도
+hx:도록 
+bd:여러 
+gz:함께 
+bs:많이 
+bz:인간
+dh:동안
+bf:이렇
+vy:필요
+ah:어머니
+ax:다음
+su:어느 
+hs:운동
+vx:퍼센트
+ux:대통령
+fv:바로 
+bc:그래서 
+cd:무엇
+cv:정부
+ab:모든 
+xz:그런데 
+bv:없이 
+hz:관계
+nv:아버지
+av:모습
+uy:하는 
+mn:나는 

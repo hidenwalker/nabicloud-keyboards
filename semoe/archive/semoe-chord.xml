@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 세모이(세벌식 모아치기 e) 자판 — 나비구름 keyboards 형식 best-effort 변환본 -->
+<!-- 출처: 세모이 keyboard, 신세기(Sinseiki), 소개 ssgi.kr -->
+<!--       https://github.com/Sinseiki/Semo-e_keyboard  (원본 날개셋 IME XML <KeyTable>) -->
+<!-- 라이선스: CC BY-SA 4.0. 본체 트리 직접 병합 금지(애드온 유지). 동작 미보증(best-effort). -->
+<!--
+  ★중대 한계 — 이 파일은 "참고용 기본 레이어"일 뿐 그대로는 동작하지 않는다.
+  세모이는 날개셋 IME 의 모아치기(chord) 엔진(KeyDown/KeyUp 버퍼 + 강제종료 타이머
+  + 자모 재정렬 상태머신 Automata)을 전제로 설계되었다. 본 변환본은 KeyTable 의 "기본
+  레이어"(조건식 T==101/102/103, P(punct), N&2 등 모든 조합/기호 레이어 제외)에서
+  말단 default 값만 추출한 것이다. chord 엔진·기호 레이어·상태전이는 미반영.
+  - 한글 자모 키(아래 jaso 표시): 원본은 날개셋 단위코드(H3|G_ 등) 토큰이라 Unicode 가
+    아니다. 토큰명 로마자 규칙(G_=ㄱ초성, A_=ㅏ중성, _G=ㄱ종성 …)에 따라 Hangul Jamo
+    영역(U+1100~)으로 best-effort 매핑했다. 검증 안 됨 — 실제 chord 동작과 다를 수 있다.
+  - 미매핑 토큰/매크로 키는 주석으로 남겨 둔다(아래 UNMAPPED).
+-->
+<!--
+  ★★★ 참고자료(reference-only) — 셸 미사용 (2026-06-19 강등, 모아치기 토글 WU4) ★★★
+  이 파일(type="semoe-chord", enum 1006)은 더 이상 셸이 선택·로드하지 않는 *참고자료*다.
+  - 셸 스캔 경로는 <DLL>\keyboards 와 <DLL>\addons\semoe\keyboards 둘뿐이다(NabiCloud.cpp
+    LoadExternalKeyboardsOnce). 이 파일은 addons\semoe\data\keyboards 에 있어 스캔 대상이
+    아니므로 g_kbList(설정창 selectable 목록)에 들어가지 않는다.
+  - 애드온 인스톨러(NabiCloud-semoe-addon.nsi)도 SEMOEKBSRC=addons\semoe\keyboards\*.xml 만
+    설치하므로 이 파일은 배포되지 않는다(확인됨).
+  - 모아치기(동시타)는 이제 type 1006 이 아니라 활성 자판의 <flags loose-order="true"> 플래그
+    + config [semoe] moachigi 로 게이트된다(셸 _ChordIsActive 가 type==1006 비교를 제거하고
+    ActiveKeyboardLooseOrder() 로 교체). 모아치기 코호트는 1005 jaso-sebeol 세모이 자판
+    (3moa-semoe-2018.xml = loose-order=true)이며 단일타 SX 도 보존된다.
+  엔진의 kOps_semoe_chord(engine-ops.c, type 1006)·compose_chord 경로는 무해하게 남겨 둔다
+  (셸이 1006 자판을 선택할 수 없어 도달 불가). nabicloud_engine_chord_compose 는 type 무관이라
+  모아치기 동시타 합성(ComposeChord)에서 계속 호출된다.
+
+  [이력] (enum 1006, SEMOE_CHORD_DESIGN §2.2 / DECISIONS §21): 원래 chord 전용 자판으로,
+  compose_chord op 가 이 type 에만 등록돼 셸이 [semoe] chord=1 AND 이 자판 선택일 때만
+  모아치기 상태기계로 키를 흡수하던 설계였다. 단일타는 ops_semoe_chord_process 가 표준 jaso
+  로 위임. ★합성 시 같은 자리 결합은 표준 combine 표 의존이라 best-effort(미상 쌍은 마지막
+  자모 우선, §6.2).
+-->
+<hangul-keyboard id="semoe-chord" type="semoe-chord">
+
+    <name>세모이 (한 번에 모아치기) — best-effort</name>
+
+    <map id="0">
+        <item key="0x21" value="0x0021"/>  <!-- ascii ! -->
+        <item key="0x22" value="0x0022"/>  <!-- ascii " -->
+        <item key="0x23" value="0x0023"/>  <!-- ascii # -->
+        <item key="0x24" value="0x0024"/>  <!-- ascii $ -->
+        <item key="0x25" value="0x0025"/>  <!-- ascii % -->
+        <item key="0x26" value="0x0026"/>  <!-- ascii & -->
+        <item key="0x27" value="0x0027"/>  <!-- ascii ' -->
+        <item key="0x28" value="0x0028"/>  <!-- ascii ( -->
+        <item key="0x29" value="0x0029"/>  <!-- ascii ) -->
+        <item key="0x2A" value="0x002a"/>  <!-- ascii * -->
+        <item key="0x2B" value="0x002b"/>  <!-- ascii + -->
+        <item key="0x2C" value="0x002c"/>  <!-- ascii , -->
+        <item key="0x2D" value="0x002d"/>  <!-- ascii - -->
+        <item key="0x2F" value="0x002f"/>  <!-- ascii / -->
+        <item key="0x30" value="0x0030"/>  <!-- ascii 0 -->
+        <item key="0x31" value="0x0031"/>  <!-- ascii 1 -->
+        <item key="0x32" value="0x0032"/>  <!-- ascii 2 -->
+        <item key="0x33" value="0x0033"/>  <!-- ascii 3 -->
+        <item key="0x34" value="0x0034"/>  <!-- ascii 4 -->
+        <item key="0x35" value="0x0035"/>  <!-- ascii 5 -->
+        <item key="0x36" value="0x0036"/>  <!-- ascii 6 -->
+        <item key="0x37" value="0x0037"/>  <!-- ascii 7 -->
+        <item key="0x38" value="0x0038"/>  <!-- ascii 8 -->
+        <item key="0x39" value="0x0039"/>  <!-- ascii 9 -->
+        <item key="0x3A" value="0x003a"/>  <!-- ascii : -->
+        <item key="0x3B" value="0x11bb"/>  <!-- jaso 종ㅆ -->
+        <item key="0x3C" value="0x003c"/>  <!-- ascii < -->
+        <item key="0x3D" value="0x003d"/>  <!-- ascii = -->
+        <item key="0x3E" value="0x003e"/>  <!-- ascii > -->
+        <item key="0x3F" value="0x003f"/>  <!-- ascii ? -->
+        <item key="0x40" value="0x0040"/>  <!-- ascii @ -->
+        <item key="0x41" value="0x2190"/>  <!-- ascii -->
+        <item key="0x42" value="0x00b0"/>  <!-- ascii -->
+        <item key="0x43" value="0x300c"/>  <!-- ascii -->
+        <item key="0x44" value="0x2192"/>  <!-- ascii -->
+        <item key="0x45" value="0x2661"/>  <!-- ascii -->
+        <item key="0x46" value="0x25b3"/>  <!-- ascii -->
+        <item key="0x47" value="0x25bd"/>  <!-- ascii -->
+        <item key="0x48" value="0x25a1"/>  <!-- ascii -->
+        <item key="0x49" value="0x3008"/>  <!-- ascii -->
+        <item key="0x4B" value="0x203b"/>  <!-- ascii -->
+        <item key="0x4C" value="0x00b7"/>  <!-- ascii -->
+        <item key="0x4D" value="0x2026"/>  <!-- ascii -->
+        <item key="0x4E" value="0x2015"/>  <!-- ascii -->
+        <item key="0x4F" value="0x3009"/>  <!-- ascii -->
+        <item key="0x50" value="0x003b"/>  <!-- ascii ; -->
+        <item key="0x51" value="0x2194"/>  <!-- ascii -->
+        <item key="0x52" value="0x2606"/>  <!-- ascii -->
+        <item key="0x53" value="0x2193"/>  <!-- ascii -->
+        <item key="0x54" value="0x25ce"/>  <!-- ascii -->
+        <item key="0x55" value="0x25cb"/>  <!-- ascii -->
+        <item key="0x56" value="0x300d"/>  <!-- ascii -->
+        <item key="0x57" value="0x2191"/>  <!-- ascii -->
+        <item key="0x58" value="0x300f"/>  <!-- ascii -->
+        <item key="0x59" value="0x00d7"/>  <!-- ascii -->
+        <item key="0x5A" value="0x300e"/>  <!-- ascii -->
+        <item key="0x5B" value="0x005b"/>  <!-- ascii [ -->
+        <item key="0x5C" value="0x005c"/>  <!-- ascii \ -->
+        <item key="0x5D" value="0x005d"/>  <!-- ascii ] -->
+        <item key="0x5E" value="0x005e"/>  <!-- ascii ^ -->
+        <item key="0x5F" value="0x005f"/>  <!-- ascii _ -->
+        <item key="0x60" value="0x0060"/>  <!-- ascii ` -->
+        <item key="0x61" value="0x11be"/>  <!-- jaso 종ㅊ -->
+        <item key="0x62" value="0x116e"/>  <!-- jaso 중ㅜ -->
+        <item key="0x63" value="0x1166"/>  <!-- jaso 중ㅔ -->
+        <item key="0x64" value="0x1175"/>  <!-- jaso 중ㅣ -->
+        <item key="0x65" value="0x11af"/>  <!-- jaso 종ㄹ -->
+        <item key="0x66" value="0x1161"/>  <!-- jaso 중ㅏ -->
+        <item key="0x67" value="0x1173"/>  <!-- jaso 중ㅡ -->
+        <item key="0x68" value="0x1112"/>  <!-- jaso 초ㅎ -->
+        <item key="0x69" value="0x1103"/>  <!-- jaso 초ㄷ -->
+        <item key="0x6A" value="0x110e"/>  <!-- jaso 초ㅊ -->
+        <item key="0x6B" value="0x1100"/>  <!-- jaso 초ㄱ -->
+        <item key="0x6C" value="0x110c"/>  <!-- jaso 초ㅈ -->
+        <item key="0x6D" value="0x1105"/>  <!-- jaso 초ㄹ -->
+        <item key="0x6E" value="0x1109"/>  <!-- jaso 초ㅅ -->
+        <item key="0x6F" value="0x1107"/>  <!-- jaso 초ㅂ -->
+        <item key="0x70" value="0x002e"/>  <!-- ascii . -->
+        <item key="0x71" value="0x11ba"/>  <!-- jaso 종ㅅ -->
+        <item key="0x72" value="0x1165"/>  <!-- jaso 중ㅓ -->
+        <item key="0x73" value="0x11ab"/>  <!-- jaso 종ㄴ -->
+        <item key="0x74" value="0x1167"/>  <!-- jaso 중ㅕ -->
+        <item key="0x75" value="0x1102"/>  <!-- jaso 초ㄴ -->
+        <item key="0x76" value="0x1169"/>  <!-- jaso 중ㅗ -->
+        <item key="0x77" value="0x11b8"/>  <!-- jaso 종ㅂ -->
+        <item key="0x78" value="0x11a8"/>  <!-- jaso 종ㄱ -->
+        <item key="0x79" value="0x1106"/>  <!-- jaso 초ㅁ -->
+        <item key="0x7A" value="0x11b7"/>  <!-- jaso 종ㅁ -->
+        <item key="0x7B" value="0x007b"/>  <!-- ascii { -->
+        <item key="0x7C" value="0x007c"/>  <!-- ascii | -->
+        <item key="0x7D" value="0x007d"/>  <!-- ascii } -->
+        <item key="0x7E" value="0x007e"/>  <!-- ascii ~ -->
+    </map>
+
+    <!-- UNMAPPED — 날개셋 매크로/미해석 단위코드(수동 검토 필요, chord 엔진 의존) -->
+    <!-- key=0x2E  H3|0x1F40000  (날개셋 단위코드, Unicode 미상) -->
+    <!-- key=0x4A  C1|100  (날개셋 매크로/명령값) -->
+
+    <!-- 자모 합성(같은 자리 두 단위 결합) 규칙은 ../semoe_jamo_mix.xml (UnitMixTable 437규칙) 참조 -->
+    <!-- 단, 그 합성을 구동하는 chord 자동자(Automata)는 미변환이라 결합 동작은 보장되지 않음 -->
+</hangul-keyboard>

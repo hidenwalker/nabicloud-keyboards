@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  세벌식 3-18Na (318Na) — 나비구름(NabiCloud) 외부 자판 데이터
+
+  ★[2026-06-20] 본 파일은 *공개 동작 명세에서 독립 재유도*한 데이터다.
+  navilera/NavilIME·OHI 등 GPL 코드의 *표현*(자료구조·식별자·직렬화 포맷·주석)은
+  복제하지 않았고, 아래 공개 출처의 *동작 사실*(키→자모 매핑, 종성 순환 규칙)만 취해
+  나비구름 자체 직렬화로 적었다. 재유도 로그·출처→데이터 대응은
+  addons/318na/PROVENANCE-318na.md 를 보라. 검증 기준은 **기능 동치**(키시퀀스→유니코드
+  정규화 음절 회귀; tests\golden_318na)이며 byte-동치가 아니다 — byte-동치를 목표로
+  삼으면 독립 재유도 원칙 위반이다.
+
+  공개 출처(동작 사실 인용용):
+    - navilera.com '318Na 세벌식 자판' 정본 페이지 — 초·중성 두벌식 무수정, 오른손
+      모음키에 1차/2차 종성을 얹는 세벌식화, 이중모음 완성키(ㅏㅓㅣㅐㅔ)는 종성 미배치.
+    - KLDP node/160815, node/165195 — 설계 3목표·빈도 기반 종성 배치·유니코드 분해식.
+
+  표기 약속(이 파일 고유 — 데이터 배치 의미):
+    - <map>/<item key value>: 물리 ASCII 코드 → 첫가끝 자모(초성 U+1100~,
+      중성 U+1161~, 종성 U+11A8~) 또는 통과 문자(ASCII). 의미 묶음(초성/중성/
+      종성/기호)으로 섹션화했고, 같은 자모를 내는 대문자/소문자 글쇠를 인접 배치했다.
+    - <combination>/<item first second result>: 두 자모의 결합(쌍자음·이중모음·
+      겹받침). 카테고리별로 묶었으며 로더가 키 기준 재정렬하므로 가독 위주로 적었다.
+    - <multikey>/<row first second third>: 오른손 모음 글쇠가 종성으로 재해석될 때의
+      후보쌍. first=재해석 trigger(중성), second=1차 종성, third=2차 종성(획 증가형).
+-->
+<hangul-keyboard id="318na" type="jaso">
+
+    <name>세벌식 3-18Na</name>
+    <name xml:lang="en">Sebeolsik 3-18Na</name>
+
+    <map id="0">
+
+        <!-- ── 초성 (두벌식 무수정 자음 글쇠) ──────────────────────────── -->
+        <item key="0x71" value="0x1107"/>  <!-- q  → ㅂ -->
+        <item key="0x77" value="0x110c"/>  <!-- w  → ㅈ -->
+        <item key="0x65" value="0x1103"/>  <!-- e  → ㄷ -->
+        <item key="0x72" value="0x1100"/>  <!-- r  → ㄱ -->
+        <item key="0x74" value="0x1109"/>  <!-- t  → ㅅ -->
+        <item key="0x61" value="0x1106"/>  <!-- a  → ㅁ -->
+        <item key="0x41" value="0x1106"/>  <!-- A  → ㅁ -->
+        <item key="0x73" value="0x1102"/>  <!-- s  → ㄴ -->
+        <item key="0x53" value="0x1102"/>  <!-- S  → ㄴ -->
+        <item key="0x64" value="0x110b"/>  <!-- d  → ㅇ -->
+        <item key="0x44" value="0x110b"/>  <!-- D  → ㅇ -->
+        <item key="0x66" value="0x1105"/>  <!-- f  → ㄹ -->
+        <item key="0x46" value="0x1105"/>  <!-- F  → ㄹ -->
+        <item key="0x67" value="0x1112"/>  <!-- g  → ㅎ -->
+        <item key="0x47" value="0x1112"/>  <!-- G  → ㅎ -->
+        <item key="0x7a" value="0x110f"/>  <!-- z  → ㅋ -->
+        <item key="0x5a" value="0x110f"/>  <!-- Z  → ㅋ -->
+        <item key="0x78" value="0x1110"/>  <!-- x  → ㅌ -->
+        <item key="0x58" value="0x1110"/>  <!-- X  → ㅌ -->
+        <item key="0x63" value="0x110e"/>  <!-- c  → ㅊ -->
+        <item key="0x43" value="0x110e"/>  <!-- C  → ㅊ -->
+        <item key="0x76" value="0x1111"/>  <!-- v  → ㅍ -->
+        <item key="0x56" value="0x1111"/>  <!-- V  → ㅍ -->
+
+        <!-- ── 초성 쌍자음 (Shift 행) ───────────────────────────────── -->
+        <item key="0x51" value="0x1108"/>  <!-- Q  → ㅃ -->
+        <item key="0x57" value="0x110d"/>  <!-- W  → ㅉ -->
+        <item key="0x45" value="0x1104"/>  <!-- E  → ㄸ -->
+        <item key="0x52" value="0x1101"/>  <!-- R  → ㄲ -->
+        <item key="0x54" value="0x110a"/>  <!-- T  → ㅆ -->
+
+        <!-- ── 중성 (두벌식 무수정 모음 글쇠) ──────────────────────────── -->
+        <item key="0x79" value="0x116d"/>  <!-- y  → ㅛ -->
+        <item key="0x59" value="0x116d"/>  <!-- Y  → ㅛ -->
+        <item key="0x75" value="0x1167"/>  <!-- u  → ㅕ -->
+        <item key="0x55" value="0x1167"/>  <!-- U  → ㅕ -->
+        <item key="0x69" value="0x1163"/>  <!-- i  → ㅑ -->
+        <item key="0x6f" value="0x1162"/>  <!-- o  → ㅐ -->
+        <item key="0x70" value="0x1166"/>  <!-- p  → ㅔ -->
+        <item key="0x68" value="0x1169"/>  <!-- h  → ㅗ -->
+        <item key="0x6a" value="0x1165"/>  <!-- j  → ㅓ -->
+        <item key="0x6b" value="0x1161"/>  <!-- k  → ㅏ -->
+        <item key="0x6c" value="0x1175"/>  <!-- l  → ㅣ -->
+        <item key="0x62" value="0x1172"/>  <!-- b  → ㅠ -->
+        <item key="0x6d" value="0x1173"/>  <!-- m  → ㅡ -->
+        <item key="0x6e" value="0x116e"/>  <!-- n  → ㅜ -->
+        <item key="0x4e" value="0x116e"/>  <!-- N  → ㅜ -->
+
+        <!-- ── 중성 (이중모음 완성 Shift 글쇠) — 종성 미배치 ─────────── -->
+        <item key="0x4f" value="0x1164"/>  <!-- O  → ㅒ -->
+        <item key="0x50" value="0x1168"/>  <!-- P  → ㅖ -->
+
+        <!-- ── 종성: 세미콜론(1차 ㅈ) + Shift 겹받침 직접 글쇠 ─────────── -->
+        <item key="0x3b" value="0x11bd"/>  <!-- ;  → 종성 ㅈ (반복 시 ㅊ, cycle 참조) -->
+        <item key="0x48" value="0x11ad"/>  <!-- H  → 겹받침 ㄶ -->
+        <item key="0x49" value="0x11b6"/>  <!-- I  → 겹받침 ㅀ -->
+        <item key="0x4a" value="0x11b9"/>  <!-- J  → 겹받침 ㅄ -->
+        <item key="0x4b" value="0x11b0"/>  <!-- K  → 겹받침 ㄺ -->
+        <item key="0x4d" value="0x11b1"/>  <!-- M  → 겹받침 ㄻ -->
+        <item key="0x42" value="0x11b2"/>  <!-- B  → 겹받침 ㄼ -->
+
+        <!-- ── 통과 문자(자모 미배치 글쇠는 ASCII 그대로) ─────────────── -->
+        <item key="0x4c" value="0x003b"/>  <!-- L  → ; (세미콜론 ASCII) -->
+        <item key="0x21" value="0x0021"/><item key="0x22" value="0x0022"/>
+        <item key="0x23" value="0x0023"/><item key="0x24" value="0x0024"/>
+        <item key="0x25" value="0x0025"/><item key="0x26" value="0x0026"/>
+        <item key="0x27" value="0x0027"/><item key="0x28" value="0x0028"/>
+        <item key="0x29" value="0x0029"/><item key="0x2a" value="0x002a"/>
+        <item key="0x2b" value="0x002b"/><item key="0x2c" value="0x002c"/>
+        <item key="0x2d" value="0x002d"/><item key="0x2e" value="0x002e"/>
+        <item key="0x2f" value="0x002f"/>
+        <item key="0x30" value="0x0030"/><item key="0x31" value="0x0031"/>
+        <item key="0x32" value="0x0032"/><item key="0x33" value="0x0033"/>
+        <item key="0x34" value="0x0034"/><item key="0x35" value="0x0035"/>
+        <item key="0x36" value="0x0036"/><item key="0x37" value="0x0037"/>
+        <item key="0x38" value="0x0038"/><item key="0x39" value="0x0039"/>
+        <item key="0x3a" value="0x003a"/>
+        <item key="0x3c" value="0x003c"/><item key="0x3d" value="0x003d"/>
+        <item key="0x3e" value="0x003e"/><item key="0x3f" value="0x003f"/>
+        <item key="0x40" value="0x0040"/>
+        <item key="0x5b" value="0x005b"/><item key="0x5c" value="0x005c"/>
+        <item key="0x5d" value="0x005d"/><item key="0x5e" value="0x005e"/>
+        <item key="0x5f" value="0x005f"/><item key="0x60" value="0x0060"/>
+        <item key="0x7b" value="0x007b"/><item key="0x7c" value="0x007c"/>
+        <item key="0x7d" value="0x007d"/><item key="0x7e" value="0x007e"/>
+    </map>
+
+    <combination id="0">
+
+        <!-- ── 초성 쌍자음 결합 ─────────────────────────────────────── -->
+        <item first="0x1100" second="0x1100" result="0x1101"/>  <!-- ㄱㄱ → ㄲ -->
+        <item first="0x1103" second="0x1103" result="0x1104"/>  <!-- ㄷㄷ → ㄸ -->
+        <item first="0x1107" second="0x1107" result="0x1108"/>  <!-- ㅂㅂ → ㅃ -->
+        <item first="0x1109" second="0x1109" result="0x110a"/>  <!-- ㅅㅅ → ㅆ -->
+        <item first="0x110c" second="0x110c" result="0x110d"/>  <!-- ㅈㅈ → ㅉ -->
+
+        <!-- ── 중성 이중모음 합성 (두벌식 동일) ───────────────────────── -->
+        <item first="0x1169" second="0x1161" result="0x116a"/>  <!-- ㅗㅏ → ㅘ -->
+        <item first="0x1169" second="0x1162" result="0x116b"/>  <!-- ㅗㅐ → ㅙ -->
+        <item first="0x1169" second="0x1175" result="0x116c"/>  <!-- ㅗㅣ → ㅚ -->
+        <item first="0x116e" second="0x1165" result="0x116f"/>  <!-- ㅜㅓ → ㅝ -->
+        <item first="0x116e" second="0x1166" result="0x1170"/>  <!-- ㅜㅔ → ㅞ -->
+        <item first="0x116e" second="0x1175" result="0x1171"/>  <!-- ㅜㅣ → ㅟ -->
+        <item first="0x1173" second="0x1175" result="0x1174"/>  <!-- ㅡㅣ → ㅢ -->
+        <item first="0x1162" second="0x1162" result="0x1164"/>  <!-- ㅐㅐ → ㅒ -->
+        <item first="0x1166" second="0x1166" result="0x1168"/>  <!-- ㅔㅔ → ㅖ -->
+
+        <!-- ── 종성 같은 글쇠 반복(1차→2차 단일종성 토글) ─────────────── -->
+        <item first="0x11a8" second="0x11a8" result="0x11a9"/>  <!-- ㄱㄱ → ㄲ -->
+        <item first="0x11ba" second="0x11ba" result="0x11bb"/>  <!-- ㅅㅅ → ㅆ -->
+        <item first="0x11bd" second="0x11bd" result="0x11be"/>  <!-- ㅈㅈ → ㅊ -->
+
+        <!-- ── 종성 겹받침 결합 (표준 한글 겹받침 집합) ────────────────── -->
+        <item first="0x11a8" second="0x11ba" result="0x11aa"/>  <!-- ㄱㅅ → ㄳ -->
+        <item first="0x11ab" second="0x11bd" result="0x11ac"/>  <!-- ㄴㅈ → ㄵ -->
+        <item first="0x11ab" second="0x11c2" result="0x11ad"/>  <!-- ㄴㅎ → ㄶ -->
+        <item first="0x11af" second="0x11a8" result="0x11b0"/>  <!-- ㄹㄱ → ㄺ -->
+        <item first="0x11af" second="0x11b7" result="0x11b1"/>  <!-- ㄹㅁ → ㄻ -->
+        <item first="0x11af" second="0x11b8" result="0x11b2"/>  <!-- ㄹㅂ → ㄼ -->
+        <item first="0x11af" second="0x11ba" result="0x11b3"/>  <!-- ㄹㅅ → ㄽ -->
+        <item first="0x11af" second="0x11c0" result="0x11b4"/>  <!-- ㄹㅌ → ㄾ -->
+        <item first="0x11af" second="0x11c1" result="0x11b5"/>  <!-- ㄹㅍ → ㄿ -->
+        <item first="0x11af" second="0x11c2" result="0x11b6"/>  <!-- ㄹㅎ → ㅀ -->
+        <item first="0x11b8" second="0x11ba" result="0x11b9"/>  <!-- ㅂㅅ → ㅄ -->
+    </combination>
+
+    <multikey>
+        <!-- 오른손 모음 글쇠의 종성 재해석 후보쌍(base 중성 → 1차/2차 종성).
+             명세 표(navilera 정본): 같은 글쇠 반복으로 1차→2차 획 증가. -->
+        <row first="0x116e" second="0x11af" third="0x11bf"/>  <!-- ㅜ : ㄹ / ㅋ -->
+        <row first="0x1172" second="0x11b8" third="0x11c1"/>  <!-- ㅠ : ㅂ / ㅍ -->
+        <row first="0x1167" second="0x11ba" third="0x11bb"/>  <!-- ㅕ : ㅅ / ㅆ -->
+        <row first="0x116d" second="0x11a8" third="0x11a9"/>  <!-- ㅛ : ㄱ / ㄲ -->
+        <row first="0x1163" second="0x11bc" third="0x11c2"/>  <!-- ㅑ : ㅇ / ㅎ -->
+        <row first="0x1169" second="0x11ab" third="0x11c0"/>  <!-- ㅗ : ㄴ / ㅌ -->
+        <row first="0x1173" second="0x11b7" third="0x11ae"/>  <!-- ㅡ : ㅁ / ㄷ -->
+    </multikey>
+
+</hangul-keyboard>

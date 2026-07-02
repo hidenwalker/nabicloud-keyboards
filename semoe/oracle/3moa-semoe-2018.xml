@@ -1,0 +1,259 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<hangul-keyboard id="3moa-semoe-2018" type="jaso-sebeol">
+    <name>세벌식 세모이 2018 모아치기</name>
+    <map id="0">
+        <item key="0x21" value="0x0021"/>
+        <item key="0x22" value="0x0022"/>
+        <item key="0x23" value="0x0023"/>
+        <item key="0x24" value="0x0024"/>
+        <item key="0x25" value="0x0025"/>
+        <item key="0x26" value="0x0026"/>
+        <item key="0x27" value="0x0027"/>
+        <item key="0x28" value="0x0028"/>
+        <item key="0x29" value="0x0029"/>
+        <item key="0x2a" value="0x002a"/>
+        <item key="0x2b" value="0x002b"/>
+        <item key="0x2c" value="0x002c"/>
+        <item key="0x2d" value="0x002d"/>
+        <item key="0x2e" value="0x1169"/>
+        <item key="0x2f" value="0x002f"/>
+        <item key="0x30" value="0x0030"/>
+        <item key="0x31" value="0x0031"/>
+        <item key="0x32" value="0x0032"/>
+        <item key="0x33" value="0x0033"/>
+        <item key="0x34" value="0x0034"/>
+        <item key="0x35" value="0x0035"/>
+        <item key="0x36" value="0x0036"/>
+        <item key="0x37" value="0x0037"/>
+        <item key="0x38" value="0x0038"/>
+        <item key="0x39" value="0x0039"/>
+        <item key="0x3a" value="0x003a"/>
+        <item key="0x3b" value="0x11bb"/>
+        <item key="0x3c" value="0x003c"/>
+        <item key="0x3d" value="0x003d"/>
+        <item key="0x3e" value="0x003e"/>
+        <item key="0x3f" value="0x003f"/>
+        <item key="0x40" value="0x0040"/>
+        <item key="0x41" value="0x2190"/>
+        <item key="0x42" value="0x00b0"/>
+        <item key="0x43" value="0x300c"/>
+        <item key="0x44" value="0x2192"/>
+        <item key="0x45" value="0x2661"/>
+        <item key="0x46" value="0x25b3"/>
+        <item key="0x47" value="0x25bd"/>
+        <item key="0x48" value="0x25a1"/>
+        <item key="0x49" value="0x3008"/>
+        <item key="0x4b" value="0x203b"/>
+        <item key="0x4c" value="0x00b7"/>
+        <item key="0x4d" value="0x2026"/>
+        <item key="0x4e" value="0x2015"/>
+        <item key="0x4f" value="0x3009"/>
+        <item key="0x50" value="0x003b"/>
+        <item key="0x51" value="0x2194"/>
+        <item key="0x52" value="0x2606"/>
+        <item key="0x53" value="0x2193"/>
+        <item key="0x54" value="0x25ce"/>
+        <item key="0x55" value="0x25cb"/>
+        <item key="0x56" value="0x300d"/>
+        <item key="0x57" value="0x2191"/>
+        <item key="0x58" value="0x300f"/>
+        <item key="0x59" value="0x00d7"/>
+        <item key="0x5a" value="0x300e"/>
+        <item key="0x5b" value="0x005b"/>
+        <item key="0x5c" value="0x005c"/>
+        <item key="0x5d" value="0x005d"/>
+        <item key="0x5e" value="0x005e"/>
+        <item key="0x5f" value="0x005f"/>
+        <item key="0x60" value="0x0060"/>
+        <item key="0x61" value="0x11bc"/>
+        <item key="0x62" value="0x116e"/>
+        <item key="0x63" value="0x1166"/>
+        <item key="0x64" value="0x1175"/>
+        <item key="0x65" value="0x11af"/>
+        <item key="0x66" value="0x1161"/>
+        <item key="0x67" value="0x1173"/>
+        <item key="0x68" value="0x1112"/>
+        <item key="0x69" value="0x1103"/>
+        <item key="0x6a" value="0x110b"/>
+        <item key="0x6b" value="0x1100"/>
+        <item key="0x6c" value="0x110c"/>
+        <item key="0x6d" value="0x1105"/>
+        <item key="0x6e" value="0x1109"/>
+        <item key="0x6f" value="0x1107"/>
+        <item key="0x70" value="0x002e"/>
+        <item key="0x71" value="0x11ba"/>
+        <item key="0x72" value="0x1165"/>
+        <item key="0x73" value="0x11ab"/>
+        <item key="0x74" value="0x1167"/>
+        <item key="0x75" value="0x1102"/>
+        <item key="0x76" value="0x1169"/>
+        <item key="0x77" value="0x11b8"/>
+        <item key="0x78" value="0x11a8"/>
+        <item key="0x79" value="0x1106"/>
+        <item key="0x7a" value="0x11b7"/>
+        <item key="0x7b" value="0x007b"/>
+        <item key="0x7c" value="0x007c"/>
+        <item key="0x7d" value="0x007d"/>
+        <item key="0x7e" value="0x007e"/>
+    </map>
+    <combination id="0">
+        <item first="0x1100" second="0x110b" result="0x1101"/>
+        <item first="0x1100" second="0x1112" result="0x110f"/>
+        <item first="0x1103" second="0x110b" result="0x1104"/>
+        <item first="0x1103" second="0x1112" result="0x1110"/>
+        <item first="0x1107" second="0x110b" result="0x1108"/>
+        <item first="0x1107" second="0x1112" result="0x1111"/>
+        <item first="0x1109" second="0x110b" result="0x110a"/>
+        <item first="0x1109" second="0x1112" result="0x110e"/>
+        <item first="0x110b" second="0x1100" result="0x1101"/>
+        <item first="0x110b" second="0x1103" result="0x1104"/>
+        <item first="0x110b" second="0x1107" result="0x1108"/>
+        <item first="0x110b" second="0x1109" result="0x110a"/>
+        <item first="0x110b" second="0x110c" result="0x110d"/>
+        <item first="0x110c" second="0x110b" result="0x110d"/>
+        <item first="0x110c" second="0x1112" result="0x110e"/>
+        <item first="0x1112" second="0x1100" result="0x110f"/>
+        <item first="0x1112" second="0x1103" result="0x1110"/>
+        <item first="0x1112" second="0x1107" result="0x1111"/>
+        <item first="0x1112" second="0x1109" result="0x110e"/>
+        <item first="0x1112" second="0x110c" result="0x110e"/>
+        <item first="0x1161" second="0x1165" result="0x116d"/>
+        <item first="0x1161" second="0x1169" result="0x116a"/>
+        <item first="0x1161" second="0x116c" result="0x116b"/>
+        <item first="0x1161" second="0x1173" result="0x119e"/>
+        <item first="0x1161" second="0x1175" result="0x1162"/>
+        <item first="0x1162" second="0x1169" result="0x116b"/>
+        <item first="0x1165" second="0x1161" result="0x116d"/>
+        <item first="0x1165" second="0x1169" result="0x116f"/>
+        <item first="0x1165" second="0x116e" result="0x116f"/>
+        <item first="0x1165" second="0x1171" result="0x1170"/>
+        <item first="0x1165" second="0x1173" result="0x11a2"/>
+        <item first="0x1166" second="0x1169" result="0x1168"/>
+        <item first="0x1166" second="0x116e" result="0x1170"/>
+        <item first="0x1166" second="0x1175" result="0x1171"/>
+        <item first="0x1167" second="0x1169" result="0x1164"/>
+        <item first="0x1169" second="0x1161" result="0x116a"/>
+        <item first="0x1169" second="0x1162" result="0x116b"/>
+        <item first="0x1169" second="0x1165" result="0x116f"/>
+        <item first="0x1169" second="0x1166" result="0x1168"/>
+        <item first="0x1169" second="0x1167" result="0x1164"/>
+        <item first="0x1169" second="0x1169" result="0x116d"/>
+        <item first="0x1169" second="0x116e" result="0x1172"/>
+        <item first="0x1169" second="0x1173" result="0x1163"/>
+        <item first="0x1169" second="0x1175" result="0x116c"/>
+        <item first="0x116a" second="0x1175" result="0x116b"/>
+        <item first="0x116c" second="0x1161" result="0x116b"/>
+        <item first="0x116e" second="0x1165" result="0x116f"/>
+        <item first="0x116e" second="0x1166" result="0x1170"/>
+        <item first="0x116e" second="0x1169" result="0x1172"/>
+        <item first="0x116e" second="0x1175" result="0x1171"/>
+        <item first="0x1171" second="0x1165" result="0x1170"/>
+        <item first="0x1173" second="0x1161" result="0x119e"/>
+        <item first="0x1173" second="0x1165" result="0x11a2"/>
+        <item first="0x1173" second="0x1169" result="0x1163"/>
+        <item first="0x1173" second="0x1175" result="0x1174"/>
+        <item first="0x1175" second="0x1161" result="0x1162"/>
+        <item first="0x1175" second="0x1166" result="0x1171"/>
+        <item first="0x1175" second="0x1169" result="0x116c"/>
+        <item first="0x1175" second="0x116a" result="0x116b"/>
+        <item first="0x1175" second="0x116e" result="0x1171"/>
+        <item first="0x1175" second="0x1173" result="0x1174"/>
+        <item first="0x119e" second="0x119e" result="0x11a2"/>
+        <item first="0x11a8" second="0x11ae" result="0x11aa"/>
+        <item first="0x11a8" second="0x11af" result="0x11b0"/>
+        <item first="0x11a8" second="0x11b7" result="0x11b0"/>
+        <item first="0x11a8" second="0x11ba" result="0x11aa"/>
+        <item first="0x11a8" second="0x11bb" result="0x11bf"/>
+        <item first="0x11a8" second="0x11bc" result="0x11a9"/>
+        <item first="0x11a8" second="0x11c2" result="0x11bf"/>
+        <item first="0x11ab" second="0x11ab" result="0x11ad"/>
+        <item first="0x11ab" second="0x11af" result="0x11ac"/>
+        <item first="0x11ab" second="0x11b7" result="0x11c0"/>
+        <item first="0x11ab" second="0x11bb" result="0x11c2"/>
+        <item first="0x11ab" second="0x11bc" result="0x11ad"/>
+        <item first="0x11ab" second="0x11c2" result="0x11ad"/>
+        <item first="0x11ae" second="0x11a8" result="0x11aa"/>
+        <item first="0x11ae" second="0x11c2" result="0x11c0"/>
+        <item first="0x11af" second="0x11a8" result="0x11b0"/>
+        <item first="0x11af" second="0x11ab" result="0x11ac"/>
+        <item first="0x11af" second="0x11b7" result="0x11b1"/>
+        <item first="0x11af" second="0x11b8" result="0x11b2"/>
+        <item first="0x11af" second="0x11ba" result="0x11b3"/>
+        <item first="0x11af" second="0x11bb" result="0x11bd"/>
+        <item first="0x11af" second="0x11bc" result="0x11a8"/>
+        <item first="0x11af" second="0x11be" result="0x11a9"/>
+        <item first="0x11af" second="0x11c1" result="0x11c0"/>
+        <item first="0x11b0" second="0x11bb" result="0x11aa"/>
+        <item first="0x11b2" second="0x11bb" result="0x11c0"/>
+        <item first="0x11b3" second="0x11bb" result="0x11a9"/>
+        <item first="0x11b7" second="0x11a8" result="0x11b0"/>
+        <item first="0x11b7" second="0x11ab" result="0x11c0"/>
+        <item first="0x11b7" second="0x11af" result="0x11b1"/>
+        <item first="0x11b7" second="0x11bb" result="0x11ae"/>
+        <item first="0x11b7" second="0x11bc" result="0x11b4"/>
+        <item first="0x11b7" second="0x11bf" result="0x11aa"/>
+        <item first="0x11b8" second="0x11af" result="0x11b2"/>
+        <item first="0x11b8" second="0x11ba" result="0x11b9"/>
+        <item first="0x11b8" second="0x11bb" result="0x11c1"/>
+        <item first="0x11b8" second="0x11bc" result="0x11b5"/>
+        <item first="0x11b8" second="0x11bd" result="0x11c0"/>
+        <item first="0x11b8" second="0x11be" result="0x11b1"/>
+        <item first="0x11b8" second="0x11c2" result="0x11c1"/>
+        <item first="0x11b9" second="0x11bb" result="0x11b1"/>
+        <item first="0x11ba" second="0x11a8" result="0x11aa"/>
+        <item first="0x11ba" second="0x11af" result="0x11b3"/>
+        <item first="0x11ba" second="0x11b8" result="0x11b9"/>
+        <item first="0x11ba" second="0x11bb" result="0x11be"/>
+        <item first="0x11ba" second="0x11bc" result="0x11bb"/>
+        <item first="0x11ba" second="0x11bd" result="0x11a9"/>
+        <item first="0x11ba" second="0x11c1" result="0x11b1"/>
+        <item first="0x11bb" second="0x11a8" result="0x11bf"/>
+        <item first="0x11bb" second="0x11ab" result="0x11c2"/>
+        <item first="0x11bb" second="0x11af" result="0x11bd"/>
+        <item first="0x11bb" second="0x11b0" result="0x11aa"/>
+        <item first="0x11bb" second="0x11b2" result="0x11c0"/>
+        <item first="0x11bb" second="0x11b3" result="0x11a9"/>
+        <item first="0x11bb" second="0x11b7" result="0x11ae"/>
+        <item first="0x11bb" second="0x11b8" result="0x11c1"/>
+        <item first="0x11bb" second="0x11b9" result="0x11b1"/>
+        <item first="0x11bb" second="0x11ba" result="0x11be"/>
+        <item first="0x11bb" second="0x11bc" result="0x11b6"/>
+        <item first="0x11bc" second="0x11a8" result="0x11a9"/>
+        <item first="0x11bc" second="0x11ab" result="0x11ad"/>
+        <item first="0x11bc" second="0x11af" result="0x11a8"/>
+        <item first="0x11bc" second="0x11b7" result="0x11b4"/>
+        <item first="0x11bc" second="0x11b8" result="0x11b5"/>
+        <item first="0x11bc" second="0x11ba" result="0x11bb"/>
+        <item first="0x11bc" second="0x11bb" result="0x11b6"/>
+        <item first="0x11bd" second="0x11b8" result="0x11c0"/>
+        <item first="0x11bd" second="0x11ba" result="0x11a9"/>
+        <item first="0x11be" second="0x11af" result="0x11a9"/>
+        <item first="0x11be" second="0x11b8" result="0x11b1"/>
+        <item first="0x11bf" second="0x11b7" result="0x11aa"/>
+        <item first="0x11c1" second="0x11af" result="0x11c0"/>
+        <item first="0x11c1" second="0x11ba" result="0x11b1"/>
+        <item first="0x11c2" second="0x11a8" result="0x11bf"/>
+        <item first="0x11c2" second="0x11ab" result="0x11ad"/>
+        <item first="0x11c2" second="0x11ae" result="0x11c0"/>
+        <item first="0x11c2" second="0x11b8" result="0x11c1"/>
+    </combination>
+    <!-- id=1: first=0x0000 13항목은 코드 경로상 도달 불가 사문(galmadeuli id=2 오기입 추정) — DECISIONS §24.1 (A) 보존. 의도 확인 전 데이터 무변경. -->
+    <combination id="1">
+        <item first="0x0000" second="0x1165" result="0x116f"/>
+        <item first="0x0000" second="0x1166" result="0x1168"/>
+        <item first="0x0000" second="0x1167" result="0x1164"/>
+        <item first="0x0000" second="0x1169" result="0x116d"/>
+        <item first="0x0000" second="0x116e" result="0x1172"/>
+        <item first="0x0000" second="0x1173" result="0x1163"/>
+        <item first="0x0000" second="0x11a8" result="0x11bf"/>
+        <item first="0x0000" second="0x11ab" result="0x11c2"/>
+        <item first="0x0000" second="0x11af" result="0x11bd"/>
+        <item first="0x0000" second="0x11b7" result="0x11ae"/>
+        <item first="0x0000" second="0x11b8" result="0x11c1"/>
+        <item first="0x0000" second="0x11ba" result="0x11be"/>
+        <item first="0x0000" second="0x11bc" result="0x11b6"/>
+    </combination>
+    <flags extended="true" galmadeuli="false" loose-order="true" right-ou="false" no-added-ggeut="false" abbrev="true"/>
+    <addon moeum-key=".b" symbol-key="2JKL:" moeum-value="0x1169 0x116e 0x1173" symbol-value="0x1169 0x116e" ext-step="0x00ae 0x2460 0x2461 0x2462 0x2463 0x2464" symbol-func="semoe"/>
+    <option name="combi-on-double-stroke" value="true"/>
+</hangul-keyboard>

@@ -1,0 +1,3 @@
+[submodule "references/semoe-keyboard"]
+	path = references/semoe-keyboard
+	url = https://github.com/Sinseiki/Semo-e_keyboard.git
