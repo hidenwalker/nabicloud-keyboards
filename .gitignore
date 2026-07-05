@@ -1,0 +1,3 @@
+# Python bytecode cache (tooling scratch)
+__pycache__/
+*.pyc

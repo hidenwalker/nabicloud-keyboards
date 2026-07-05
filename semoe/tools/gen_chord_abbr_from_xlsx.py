@@ -74,6 +74,23 @@ def _slot_map(slot):
     return {'CHO': CHO_MAP, 'JUNG': JUNG_MAP, 'JONG': JONG_MAP}[slot]
 
 
+# ── xlsx E↔F 스왑 보정 (세모이 본가 회신 반영, 2026-07-05) ─────────────────────
+#   ★근거: 세모이 자판 원저작자 신세기(Sinseiki) 님 직접 회신
+#     (https://github.com/Sinseiki/Semo-e_keyboard/issues/1, 2026-06-19 문의에 대한 답):
+#       "직원·확인·만나게는 종성 칸에 자음, 중성 칸에 모음이 있는 것이 맞습니다.
+#        제가 이 문서를 만들 때 입력이 밀린 것 같습니다."
+#     → xlsx 원본의 중성(E)·종성(F) 칸 값이 서로 뒤바뀐 **데이터 입력 오류**(작성자 본인 확인).
+#       표준대로 종성=자음·중성=모음이 맞으므로 이 3건만 E↔F 를 스왑하면 정상 처리된다
+#       (추측 매핑이 아니라 원저작자가 확인해 준 수정).
+#   ★왜 xlsx 원본이 아니라 스크립트에서 보정하나: xlsx 는 신세기 님이 만든 원본 레퍼런스라
+#     수정하지 않는다(정본 보존). 대신 여기에 명시적·감사가능·재현가능한 보정 테이블을 두어,
+#     "무엇을·왜 바꿨는지"가 코드에 남게 한다(regen_chord_abbr_dic.py 의 HOLD_CHO_BASE 특례맵 미러).
+#   ★스코프: 이 3건뿐. ㅗ(왼쪽) 토큰 2건(그냥·느냐?)은 실제 모음이 아니라 "왼쪽 모음시프트+g"
+#     라는 엄지-약어 전용 트리거의 xlsx 표기라(신세기 님 회신 ②), conjoining-base fold 파이프라인
+#     대상이 아니므로 보정하지 않고 holdback 에 확인된 미도달로 남긴다.
+EF_SWAP_WORDS = frozenset({'직원', '확인', '만나게'})
+
+
 # ── xlsx 파싱 (zipfile + sharedStrings + sheet1, stdlib) ──────────────────────
 _NS = '{http://schemas.openxmlformats.org/spreadsheetml/2006/main}'
 
@@ -188,6 +205,12 @@ def regen():
     pending = []        # (word, key)
     for b, d, e, f in rows:
         word = word_from_cell(b)
+        # 본가 회신 반영: 밀린 입력(중성↔종성) 3건만 E↔F 스왑 후 처리(위 EF_SWAP_WORDS 주석).
+        # ★단어 비교는 strip 기준: 만나게 는 xlsx 'v'(공백) 범례로 실제 값이 "만나게 "(뒤 공백
+        #   포함, 확장문에 보존됨)이라 정확일치가 안 됨 — 스왑 판정만 공백 무시하고 word 자체(공백
+        #   포함)는 .dic 단어로 그대로 보존한다.
+        if word.strip() in EF_SWAP_WORDS:
+            e, f = f, e
         key, err = build_key_checked(d, e, f, rules)
         if key is None:
             holdback.append((word, d, e, f, err))
@@ -243,7 +266,12 @@ _HOLD_HEADER = (
     "#   충돌 = 같은 canonical 키가 다른 단어로 중복 → 임의 우선순위 덮어쓰기 금지(둘 다 보류).\n"
     "# 폐기 아님(xlsx 정본 유지, raw.tsv 역추론은 교차검증용). 추측 매핑 금지.\n"
     "# ★본가 문의(2026-06-19): 이 5건 조합키 표기(슬롯-역할 불일치)의 입력 의도를 세모이 본가에 문의 →\n"
-    "#   https://github.com/Sinseiki/Semo-e_keyboard/issues/1 . 회신 시 반영(그때까지 추측 매핑 금지·보류 유지).\n"
+    "#   https://github.com/Sinseiki/Semo-e_keyboard/issues/1 .\n"
+    "# ★회신 반영(2026-07-05, 신세기 님 직접 확인): 직원·확인·만나게 3건 = 중성↔종성 입력이 밀린\n"
+    "#   데이터 오류(작성자 본인 확인) → E↔F 스왑으로 재소싱 완료(더 이상 보류 아님, gen 스크립트\n"
+    "#   EF_SWAP_WORDS 보정 참조). 남은 2건(그냥·느냐?)의 'ㅗ(왼쪽)' = 실제 모음이 아니라 왼쪽\n"
+    "#   모음시프트+g 라는 엄지-약어 전용 트리거의 xlsx 표기(의도된 설계) → 재소싱 대상 아님(확인된\n"
+    "#   미도달). 이 2건은 폐기도 재소싱도 아닌 확정 사실로 holdback 유지가 정답.\n"
     "# 형식: <단어>\\t조합키[D|E|F]\\t# <보류사유>\n"
 )
 
