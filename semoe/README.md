@@ -14,12 +14,14 @@
 세모이는 **모아치기**(동시타·재정렬)와 **이어치기**(순차 입력)를 가집니다. 두 모드는
 별도 자판 파일이 아니라 **하나의 자판 + 설정 스위치**로 다룹니다.
 
-- 출하 기준 모아치기를 켜는 자판은 `3moa-semoe-2018.xml` **1종뿐**입니다
-  (이 파일만 `<flags loose-order="true">`). 나머지 4종은 `loose-order="false"`라
-  이어치기로 동작합니다.
-- 셸 설정 `config.ini` 의 `[semoe] moachigi`(기본 1=인정) 가 loose-order 선언 자판의
+- 현재 2014~2018 **5종 모두** `<flags loose-order="true" abbrev="true">`를 선언합니다.
+  연도는 배열 개정 코호트이고 세모이 자체가 모아치기 입력 체계이므로, 모든 코호트가
+  같은 capability 기반 동시타·약어 경로를 사용합니다.
+- Windows 셸 설정 `config.ini` 의 `[semoe] moachigi`(기본 1=인정) 가 loose-order 선언 자판의
   모아치기 동작을 켜고 끕니다. loose-order 미선언 자판은 이 설정과 무관하게
   이어치기 baseline 입니다(불변식: DECISIONS §23).
+- macOS 셸은 환경설정의 `모아치기`·`약어`를 같은 두 XML capability에 연결하며,
+  약어는 모아치기가 켜지고 약어 사전·UnitMix overlay가 모두 검증된 경우에만 발동합니다.
 - (참고) 과거 동봉되던 이어치기 전용 변형은 2018 과 `loose-order` 플래그만 다른
   중복본이라 출하에서 제거됐습니다. 이어치기는 위 설정으로 이미 커버됩니다.
 
@@ -60,6 +62,11 @@ ShareAlike 의무가 따릅니다.
   `[semoe] moachigi` 키가 없을 때만 이 seed 로 비파괴 append(per-user 보존).
 - **인스톨러**: `windows/installer/NabiCloud-semoe-addon.nsi`(makensis). 글롭 설치라
   자판 수가 바뀌어도 스크립트 수정 없이 따라갑니다.
+- **macOS 로컬 설치**: 본체 저장소의
+  `macos/nabicloud/tools/install_semoe_addon_local.sh`가 정확한 5개 XML·약어 사전·
+  UnitMix·NOTICE를 `~/Library/Application Support/NabiCloud/addons/semoe/`에
+  원자 교체하고 `payload.sha256`으로 재검증합니다. 앱 번들에는 CC BY-SA 데이터를
+  합치지 않습니다.
 
 ## 5. 검증
 
