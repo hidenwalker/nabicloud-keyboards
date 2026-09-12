@@ -46,7 +46,7 @@
 | `data/dictionary/80-abbrev-semoe.txt` | `<UserCandiTable>` | 음절열→단어 약어, `key:value` 평면화(394행) |
 | `data/semoe_2stage_candidates.tsv` | `<UserCandiTable>` | 2단계 후보(순서 보존, key→후보목록) |
 | `data/semoe_word_abbr.dic` | `<UserCandiTable>` | 위 동일 소스(staging 원본) |
-| `data/semoe_chord_abbr.dic` | `<HanSubstTable>` | chord 자모열→단어 약어(1372행, 옛한글/PUA 보존) |
+| `data/semoe_chord_abbr.dic` | 약어표 XLSX 조합키 | chord 자모열→단어 약어(유효 데이터행 1,352). 가나다순 생성 입력 1,352/1,354=99.85%, 좌·우 부표 전체 1,352/1,365=99.05%; raw PUA 150은 현재 편입되어 `_pua.tsv`는 빈 격리 |
 | `data/semoe_chord_abbr_raw.tsv` | `<HanSubstTable>` | 무손실 코드포인트 원본 |
 | `data/semoe_jamo_mix.xml` | `<UnitMixTable>` | 자모 조합 규칙(437) |
 | `data/semoe_unitmix_combine.tsv` | `<UnitMixTable>` | 약어 key-fold용 UnitMix overlay(311행, 방향성 보존) |
